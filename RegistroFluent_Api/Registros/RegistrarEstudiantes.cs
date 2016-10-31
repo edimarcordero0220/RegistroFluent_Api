@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroFluent_Api
+namespace RegistroFluent_Api.Registros
 {
-    public partial class Form1 : Form
+    public partial class RegistrarEstudiantes : Form
     {
-        public Form1()
+        public RegistrarEstudiantes()
         {
             InitializeComponent();
         }
