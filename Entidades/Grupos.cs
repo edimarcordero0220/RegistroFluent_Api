@@ -13,7 +13,7 @@ namespace Entidades
         public int IdGrupo { get; set; }
         public string NombreGrupo { get; set; }
 
-        public List<Estudiantes> Estudiante { get; set; }
+        public virtual List<Estudiantes> Estudiante { get; set; }
         public Grupos()
         {
             this.Estudiante = new List<Estudiantes>();

@@ -1,4 +1,5 @@
 ﻿using RegistroFluent_Api.Registros;
+using RegistroFluent_Api.Consultas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,13 @@ namespace RegistroFluent_Api
             Detalles de = new Detalles();
             de.MdiParent = this.MdiParent;
             de.Show();
+        }
+
+        private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarEstudiante ce = new ConsultarEstudiante();
+            ce.MdiParent = this.MdiParent;
+            ce.Show();
         }
     }
 }

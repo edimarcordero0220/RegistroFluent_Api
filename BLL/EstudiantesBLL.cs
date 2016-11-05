@@ -62,5 +62,12 @@ namespace BLL
             }
             return lista;
         }
+        public static void Eliminar(int Id)
+        {
+            var db = new RegistroFluentApiDb();
+            Estudiantes e = db.Estudiante.Find(Id);
+            db.Estudiante.Remove(e);
+            db.SaveChanges();
+        }
     }
 }

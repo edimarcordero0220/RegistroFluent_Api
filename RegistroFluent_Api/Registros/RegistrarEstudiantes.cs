@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using BLL;
+using RegistroFluent_Api.Registros;
 
 
 namespace RegistroFluent_Api.Registros
@@ -31,6 +32,70 @@ namespace RegistroFluent_Api.Registros
             LlenarClase(estudiante);
             EstudiantesBLL.Guardar(estudiante);
             MessageBox.Show("Guardado");
+        }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            VaciarTexbox();
+        }
+
+        public void VaciarTexbox()
+        {
+            IdtextBox.Clear();
+            NombretextBox.Clear();
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            if (ValidarId("Ingrese Id del Usuario")&& ValidarBuscar() )
+            {
+                EstudiantesBLL.Eliminar(String(IdtextBox.Text));
+
+                VaciarTexbox();
+                MessageBox.Show("Eliminacion con Exitosa");
+            }
+        }
+        private bool ValidarId(string message)
+        {
+            if (string.IsNullOrEmpty(IdtextBox.Text))
+            {
+                errorProvider1.SetError(IdtextBox, "Ingresar Id!!");
+                MessageBox.Show(message);
+                return false;
+            }
+            else
+            {
+
+                return true;
+            }
+        }
+        private bool ValidarBuscar()
+        {
+            if (EstudiantesBLL.Buscar(String(IdtextBox.Text)) == null)
+            {
+                MessageBox.Show("Este registro no existe");
+                return false;
+
+            }
+
+            return true;
+
+
+        }
+
+        public int String(string texto)
+        {
+            int numero = 0;
+
+            int.TryParse(texto, out numero);
+
+            return numero;
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            if (ValidarId("Ingresa el Id") && ValidarBuscar())
+                LlenarClase(EstudiantesBLL.Buscar(String(IdtextBox.Text)));
         }
     }
 }

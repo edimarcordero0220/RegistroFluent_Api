@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NombreGrupotextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.IdtextBox = new System.Windows.Forms.TextBox();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.Buscarbutton = new System.Windows.Forms.Button();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreGrupotextBox
@@ -53,7 +59,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(180, 181);
+            this.Guardarbutton.Location = new System.Drawing.Point(199, 181);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 56);
             this.Guardarbutton.TabIndex = 2;
@@ -78,11 +84,48 @@
             this.IdtextBox.TabIndex = 4;
             this.IdtextBox.TextChanged += new System.EventHandler(this.IdtextBox_TextChanged);
             // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Location = new System.Drawing.Point(99, 181);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(75, 56);
+            this.Eliminarbutton.TabIndex = 6;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click_1);
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.Location = new System.Drawing.Point(12, 181);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(75, 56);
+            this.Nuevobutton.TabIndex = 7;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            // 
+            // Buscarbutton
+            // 
+            this.Buscarbutton.Location = new System.Drawing.Point(292, 181);
+            this.Buscarbutton.Name = "Buscarbutton";
+            this.Buscarbutton.Size = new System.Drawing.Size(75, 53);
+            this.Buscarbutton.TabIndex = 8;
+            this.Buscarbutton.Text = "Buscar";
+            this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click_1);
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // RegitrarGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 320);
+            this.Controls.Add(this.Buscarbutton);
+            this.Controls.Add(this.Nuevobutton);
+            this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.IdtextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Guardarbutton);
@@ -91,6 +134,7 @@
             this.Name = "RegitrarGrupos";
             this.Text = "RegitrarGrupos";
             this.Load += new System.EventHandler(this.RegitrarGrupos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,5 +147,10 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox IdtextBox;
+        private System.Windows.Forms.Button Eliminarbutton;
+        private System.Windows.Forms.Button Nuevobutton;
+        private System.Windows.Forms.Button Buscarbutton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
