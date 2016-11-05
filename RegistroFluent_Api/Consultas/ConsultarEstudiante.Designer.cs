@@ -37,6 +37,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +115,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(479, 202);
             this.dataGridView1.TabIndex = 8;
             // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Location = new System.Drawing.Point(30, 395);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(75, 37);
+            this.Imprimirbutton.TabIndex = 9;
+            this.Imprimirbutton.Text = "Imprimir ";
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            // 
             // ConsultarEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 437);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BuscartextBox);
             this.Controls.Add(this.textBox2);
@@ -147,5 +158,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox BuscartextBox;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }
