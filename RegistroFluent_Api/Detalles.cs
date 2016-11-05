@@ -30,6 +30,8 @@ namespace RegistroFluent_Api
             {
                 NombreGrupotextBox.Text = grupo.NombreGrupo;
             }
+            
+            //IdtextBox.Text = "";
 
         }
 
@@ -56,6 +58,59 @@ namespace RegistroFluent_Api
             grupo.Estudiante.Add(estudiante);
             EstudiantedataGridView.DataSource = null;
             EstudiantedataGridView.DataSource = grupo.Estudiante;
+        }
+
+        private void LlenarGruposEstudiantes(List<Estudiantes>lista)
+        {
+            var estudiante = new List<Estudiantes>();
+            foreach(Estudiantes estu in lista)
+            {
+                estudiante.Add(EstudiantesBLL.Buscar(estu.IdEstudiante));
+            }
+            EstudiantedataGridView.DataSource = null;
+            EstudiantedataGridView.DataSource = estudiante;
+
+        }
+
+        private void Insertarbutton_Click(object sender, EventArgs e)
+        {
+            /*
+            EstudiantesBLL.Guardar(new Estudiantes()
+            {
+                IdEstudiante=1,
+                EstudianteNombre="Edimar"
+            });
+            EstudiantesBLL.Guardar(new Estudiantes()
+            {
+                IdEstudiante = 1,
+                EstudianteNombre = "Jose"
+            });
+            EstudiantesBLL.Guardar(new Estudiantes()
+            {
+                IdEstudiante = 1,
+                EstudianteNombre = "Cara de c*lo"
+            });*/
+
+        }
+
+        private void EstudiantedataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void IdtextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void EstudiantescomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detalles_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

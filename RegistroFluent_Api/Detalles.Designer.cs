@@ -38,8 +38,8 @@
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.IdtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.EstudiantescomboBox = new System.Windows.Forms.ComboBox();
             this.EstudiantedataGridView = new System.Windows.Forms.DataGridView();
+            this.EstudiantescomboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EstudiantedataGridView)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +52,7 @@
             this.Insertarbutton.TabIndex = 0;
             this.Insertarbutton.Text = "Insertar Estudiante";
             this.Insertarbutton.UseVisualStyleBackColor = true;
+            this.Insertarbutton.Click += new System.EventHandler(this.Insertarbutton_Click);
             // 
             // NombreGrupotextBox
             // 
@@ -123,6 +124,7 @@
             this.IdtextBox.Name = "IdtextBox";
             this.IdtextBox.Size = new System.Drawing.Size(100, 20);
             this.IdtextBox.TabIndex = 9;
+            this.IdtextBox.TextChanged += new System.EventHandler(this.IdtextBox_TextChanged);
             // 
             // groupBox1
             // 
@@ -137,14 +139,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // EstudiantescomboBox
-            // 
-            this.EstudiantescomboBox.FormattingEnabled = true;
-            this.EstudiantescomboBox.Location = new System.Drawing.Point(83, 29);
-            this.EstudiantescomboBox.Name = "EstudiantescomboBox";
-            this.EstudiantescomboBox.Size = new System.Drawing.Size(308, 21);
-            this.EstudiantescomboBox.TabIndex = 0;
-            // 
             // EstudiantedataGridView
             // 
             this.EstudiantedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -152,6 +146,16 @@
             this.EstudiantedataGridView.Name = "EstudiantedataGridView";
             this.EstudiantedataGridView.Size = new System.Drawing.Size(453, 174);
             this.EstudiantedataGridView.TabIndex = 6;
+            this.EstudiantedataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EstudiantedataGridView_CellContentClick);
+            // 
+            // EstudiantescomboBox
+            // 
+            this.EstudiantescomboBox.FormattingEnabled = true;
+            this.EstudiantescomboBox.Location = new System.Drawing.Point(83, 29);
+            this.EstudiantescomboBox.Name = "EstudiantescomboBox";
+            this.EstudiantescomboBox.Size = new System.Drawing.Size(308, 21);
+            this.EstudiantescomboBox.TabIndex = 0;
+            this.EstudiantescomboBox.SelectedIndexChanged += new System.EventHandler(this.EstudiantescomboBox_SelectedIndexChanged);
             // 
             // Detalles
             // 
@@ -168,6 +172,7 @@
             this.Controls.Add(this.Insertarbutton);
             this.Name = "Detalles";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Detalles_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EstudiantedataGridView)).EndInit();

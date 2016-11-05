@@ -52,6 +52,7 @@
             this.Guardarbutton.TabIndex = 1;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // IdtextBox
             // 
