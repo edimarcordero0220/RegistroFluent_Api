@@ -24,7 +24,7 @@ namespace RegistroFluent_Api.Registros
         }
         public void LlenarClase(Entidades.Estudiantes estudiante)
         {
-            //estudiante.IdEstudiante = Convert.ToInt32(IdtextBox.Text);
+            
             estudiante.Nombre = NombretextBox.Text;
         }
 
@@ -51,7 +51,7 @@ namespace RegistroFluent_Api.Registros
         {
             if (ValidarId("Ingrese Id del Usuario")&& ValidarBuscar() )
             {
-                //EstudiantesBLL.Eliminar(String(IdtextBox.Text));
+                
 
                 VaciarTexbox();
                 MessageBox.Show("Eliminacion con Exitosa");

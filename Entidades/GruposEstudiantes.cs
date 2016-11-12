@@ -13,7 +13,6 @@ namespace Entidades
         public int GrupoEstudianteId { get; set; }
         public int GrupoId { get; set; }
         public int EstudianteId { get; set; }
-        /*public string EstudianteNombre { get; set; }
-        public string NombreGrupo { get; set; }*/
+        
     }
 }

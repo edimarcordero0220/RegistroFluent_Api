@@ -67,13 +67,7 @@ namespace BLL
             }
             return lista;
         }
-        /*public static List<Estudiantes> GetLista()
-        {
-            var lista = new List<Estudiantes>();
-            var db = new DetallesDb();
-            lista = db.Estudiante.ToList();
-            return lista;
-        }*/
+        
         public static void Eliminar(int Id)
         {
             var db = new DetallesDb();

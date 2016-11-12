@@ -100,13 +100,7 @@ namespace BLL
             return lista;
 
         }
-        /*public static Grupos Buscar(int GrupoId)
-        {
-            Grupos grupos = new Grupos();
-            var db = new DetallesDb();
-            grupos = db.Grupo.Find(GrupoId);
-            return grupos;
-        }*/
+        
 
     }
 }
