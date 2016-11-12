@@ -38,12 +38,17 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EstudiantecomboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Agregarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreGrupotextBox
             // 
-            this.NombreGrupotextBox.Location = new System.Drawing.Point(75, 106);
+            this.NombreGrupotextBox.Location = new System.Drawing.Point(115, 25);
             this.NombreGrupotextBox.Name = "NombreGrupotextBox";
             this.NombreGrupotextBox.Size = new System.Drawing.Size(199, 20);
             this.NombreGrupotextBox.TabIndex = 0;
@@ -51,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 90);
+            this.label1.Location = new System.Drawing.Point(112, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +64,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(199, 181);
+            this.Guardarbutton.Location = new System.Drawing.Point(214, 289);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 56);
             this.Guardarbutton.TabIndex = 2;
@@ -70,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 31);
+            this.label2.Location = new System.Drawing.Point(20, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +83,7 @@
             // 
             // IdtextBox
             // 
-            this.IdtextBox.Location = new System.Drawing.Point(75, 47);
+            this.IdtextBox.Location = new System.Drawing.Point(23, 25);
             this.IdtextBox.Name = "IdtextBox";
             this.IdtextBox.Size = new System.Drawing.Size(62, 20);
             this.IdtextBox.TabIndex = 4;
@@ -86,7 +91,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(99, 181);
+            this.Eliminarbutton.Location = new System.Drawing.Point(115, 289);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 56);
             this.Eliminarbutton.TabIndex = 6;
@@ -96,7 +101,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(12, 181);
+            this.Nuevobutton.Location = new System.Drawing.Point(23, 289);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 56);
             this.Nuevobutton.TabIndex = 7;
@@ -106,7 +111,7 @@
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Location = new System.Drawing.Point(292, 181);
+            this.Buscarbutton.Location = new System.Drawing.Point(309, 289);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(75, 53);
             this.Buscarbutton.TabIndex = 8;
@@ -118,11 +123,52 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 130);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(485, 144);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // EstudiantecomboBox
+            // 
+            this.EstudiantecomboBox.FormattingEnabled = true;
+            this.EstudiantecomboBox.Location = new System.Drawing.Point(55, 93);
+            this.EstudiantecomboBox.Name = "EstudiantecomboBox";
+            this.EstudiantecomboBox.Size = new System.Drawing.Size(121, 21);
+            this.EstudiantecomboBox.TabIndex = 10;
+            this.EstudiantecomboBox.SelectedIndexChanged += new System.EventHandler(this.EstudiantecomboBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Lista";
+            // 
+            // Agregarbutton
+            // 
+            this.Agregarbutton.Location = new System.Drawing.Point(204, 80);
+            this.Agregarbutton.Name = "Agregarbutton";
+            this.Agregarbutton.Size = new System.Drawing.Size(75, 34);
+            this.Agregarbutton.TabIndex = 12;
+            this.Agregarbutton.Text = "Agregar";
+            this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
+            // 
             // RegitrarGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 320);
+            this.ClientSize = new System.Drawing.Size(636, 357);
+            this.Controls.Add(this.Agregarbutton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.EstudiantecomboBox);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.Eliminarbutton);
@@ -135,6 +181,7 @@
             this.Text = "RegitrarGrupos";
             this.Load += new System.EventHandler(this.RegitrarGrupos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +199,9 @@
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Agregarbutton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox EstudiantecomboBox;
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class GruposEstudiantes
+    public class GrupoEstudiantes
     {
         [Key]
-        public int Id { get; set; }
-        public int IdGrupo { get; set; }
+        public int GrupoEstudianteId { get; set; }
+        public int GrupoId { get; set; }
         public int EstudianteId { get; set; }
-        public string EstudianteNombre { get; set; }
-        public string NombreGrupo { get; set; }
+        /*public string EstudianteNombre { get; set; }
+        public string NombreGrupo { get; set; }*/
     }
 }

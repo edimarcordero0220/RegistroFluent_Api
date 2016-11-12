@@ -31,7 +31,7 @@ namespace RegistroFluent_Api.Consultas
             var estudiantes = new List<Estudiantes>();
             foreach (Estudiantes est in lista)
             {
-                estudiantes.Add(BLL.EstudiantesBLL.Buscar(est.IdEstudiante));
+                estudiantes.Add(BLL.EstudiantesBLL.Buscar(est.EstudianteId));
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = estudiantes;

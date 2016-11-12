@@ -26,8 +26,7 @@ namespace RegistroFluent_Api.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RN37CA3;Initial Catalog=RegistroFluentApiDb;Integrated Securi" +
-            "ty=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RN37CA3;Initial Catalog=DetallesDb;Integrated Security=True")]
         public string ConStr {
             get {
                 return ((string)(this["ConStr"]));

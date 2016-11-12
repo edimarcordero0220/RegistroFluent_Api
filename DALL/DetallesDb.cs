@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.Data.Entity;
 
 namespace DALL
 {
-    public class RegistroFluentApiDb : DbContext 
+   public  class DetallesDb : DbContext
     {
-        public RegistroFluentApiDb() : base("name=ConStr")
+        public DetallesDb() : base("name=ConStr")
         {
 
         }
-        public virtual DbSet<Estudiantes> Estudiante { get; set; }
+        
         public virtual DbSet<Grupos> Grupo { get; set; }
-        public DbSet<GruposEstudiantes>GrupoEstudiante { get; set; }
+        public virtual DbSet<Estudiantes> Estudiante { get; set; }
+        public DbSet<GrupoEstudiantes> GrupoEstudiante { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Grupos>()
@@ -24,10 +26,11 @@ namespace DALL
                 .WithMany(e => e.Grupo)
                 .Map(Ge =>
                 {
-                    Ge.MapLeftKey("GrupodId");
-                    Ge.MapRightKey("EstudianteId");
+                    Ge.MapLeftKey("EstudianteId");
+                    Ge.MapRightKey("GrupodId");
                     Ge.ToTable("GruposEstudiantes");
                 });
         }
     }
 }
+

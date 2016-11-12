@@ -16,6 +16,8 @@ namespace RegistroFluent_Api.Registros
 {
     public partial class RegistrarEstudiantes : Form
     {
+        Estudiantes Es = new Estudiantes();
+        Util u = new Util();
         public RegistrarEstudiantes()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace RegistroFluent_Api.Registros
         public void LlenarClase(Entidades.Estudiantes estudiante)
         {
             //estudiante.IdEstudiante = Convert.ToInt32(IdtextBox.Text);
-            estudiante.EstudianteNombre = NombretextBox.Text;
+            estudiante.Nombre = NombretextBox.Text;
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace RegistroFluent_Api.Registros
         {
             if (ValidarId("Ingrese Id del Usuario")&& ValidarBuscar() )
             {
-                EstudiantesBLL.Eliminar(String(IdtextBox.Text));
+                //EstudiantesBLL.Eliminar(String(IdtextBox.Text));
 
                 VaciarTexbox();
                 MessageBox.Show("Eliminacion con Exitosa");
@@ -82,6 +84,28 @@ namespace RegistroFluent_Api.Registros
 
 
         }
+        private void Llenar(Estudiantes Est)
+        {
+            var Estu = EstudiantesBLL.Buscar(u.StringToInt(IdtextBox.Text));
+            IdtextBox.Text = Est.EstudianteId.ToString();
+            NombretextBox.Text = Est.Nombre;
+            EstudiantedataGridView.DataSource = null;
+            EstudiantedataGridView.DataSource = Est.EstudianteId;
+
+        }
+        private void RegitrarGrupos_Load(object sender, EventArgs e)
+        {
+
+            LlenandoCombo();
+        }
+
+        private void LlenandoCombo()
+        {
+            Es = new Estudiantes();
+            EstudiantecomboBox.DataSource = GrupoBLL.GetLista();
+            EstudiantecomboBox.ValueMember = "EstudianteId";
+            EstudiantecomboBox.DisplayMember = "Nombres";
+        }
 
         public int String(string texto)
         {
@@ -96,6 +120,14 @@ namespace RegistroFluent_Api.Registros
         {
             if (ValidarId("Ingresa el Id") && ValidarBuscar())
                 LlenarClase(EstudiantesBLL.Buscar(String(IdtextBox.Text)));
+        }
+
+        private void agregarbutton_Click(object sender, EventArgs e)
+        {
+            Es.Grupo.Add(new Grupos((int)EstudiantecomboBox.SelectedValue, EstudiantecomboBox.Text));
+            EstudiantedataGridView.DataSource = null;
+            EstudiantedataGridView.DataSource = Es.Grupo;
+            EstudiantecomboBox.Text = "";
         }
     }
 }

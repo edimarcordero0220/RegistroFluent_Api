@@ -13,22 +13,30 @@ namespace BLL
         Grupos grupo = new Grupos();
         public static void Guardar(Grupos G)
         {
+            
             try
             {
-                RegistroFluentApiDb db = new RegistroFluentApiDb();
-                {
+                DetallesDb db = new DetallesDb();
+                
                     db.Grupo.Add(G);
+                    foreach (var est in G.Estudiante)
+                    {
+                        db.Entry(est).State = System.Data.Entity.EntityState.Unchanged;
+                    }
                     db.SaveChanges();
                     db.Dispose();
-                }
-            }catch(Exception ex)
+
+               
+                
+            }catch(Exception )
             {
-                throw ex;
+                throw ;
             }
+            
         }
         public static void Guardad (int v)
         {
-            RegistroFluentApiDb db = new RegistroFluentApiDb();
+            DetallesDb db = new DetallesDb();
             Grupos grupo = db.Grupo.Find(v);
             try
             {
@@ -39,21 +47,66 @@ namespace BLL
                 throw ex;
             }
         }
-        public static Grupos Buscar(int IdGrupo)
+        public static Grupos Buscar(int id)
         {
-            Grupos grupo = new Grupos();
-            using (RegistroFluentApiDb conexion = new RegistroFluentApiDb())
+            Grupos grupos = new Grupos();
+            using (var db = new DetallesDb())
             {
                 try
                 {
-                    grupo = conexion.Grupo.Find(IdGrupo);
-                }catch (Exception ex)
+                    grupos = db.Grupo.Find(id);
+                    //grupos..Count();
+
+                }
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
             }
-            return grupo;
+
+            return grupos;
+
         }
+        public static List<Grupos> GetLista()
+        {
+            var lista = new List<Grupos>();
+
+            var db = new DetallesDb();
+
+            lista = db.Grupo.ToList();
+
+            return lista;
+        }
+        public static List<Grupos> GetListaGrupos(int id)
+        {
+            List<Grupos> lista = new List<Grupos>();
+
+            var db = new DetallesDb();
+
+            lista = db.Grupo.Where(p => p.GrupoId == id && p.Estudiante.Count > 0).ToList();
+
+            return lista;
+
+        }
+
+        public static List<Grupos> GetListaNombres(string aux)
+        {
+            List<Grupos> lista = new List<Grupos>();
+
+            var db = new DetallesDb();
+
+            lista = db.Grupo.Where(p => p.Nombre == aux).ToList();
+
+            return lista;
+
+        }
+        /*public static Grupos Buscar(int GrupoId)
+        {
+            Grupos grupos = new Grupos();
+            var db = new DetallesDb();
+            grupos = db.Grupo.Find(GrupoId);
+            return grupos;
+        }*/
 
     }
 }

@@ -60,6 +60,7 @@
             this.NombreGrupotextBox.Name = "NombreGrupotextBox";
             this.NombreGrupotextBox.Size = new System.Drawing.Size(100, 20);
             this.NombreGrupotextBox.TabIndex = 1;
+            this.NombreGrupotextBox.TextChanged += new System.EventHandler(this.NombreGrupotextBox_TextChanged);
             // 
             // label1
             // 

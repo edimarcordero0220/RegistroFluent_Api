@@ -14,13 +14,14 @@ namespace RegistroFluent_Api
 {
     public partial class Detalles : Form
     {
+        Grupos gr = new Grupos();
         private Grupos grupo = new Grupos();
         public Detalles()
         {
             InitializeComponent();
-            EstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
-            EstudiantescomboBox.ValueMember = "IDEstudiante";
-            //EstudiantescomboBox.ValueMember = "NombreGrupo";
+           EstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+            EstudiantescomboBox.ValueMember = "EstudianteId";
+           EstudiantescomboBox.ValueMember = "Nombre";
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -28,7 +29,7 @@ namespace RegistroFluent_Api
             GrupoBLL.Buscar(Convert.ToInt32(IdtextBox.Text));
             if (grupo != null)
             {
-                NombreGrupotextBox.Text = grupo.NombreGrupo;
+                NombreGrupotextBox.Text = grupo.Nombre;
             }
             
             //IdtextBox.Text = "";
@@ -37,8 +38,8 @@ namespace RegistroFluent_Api
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            grupo.IdGrupo = Convert.ToInt32(IdtextBox.Text);
-            grupo.NombreGrupo = NombreGrupotextBox.Text;
+            grupo.GrupoId = Convert.ToInt32(IdtextBox.Text);
+            grupo.Nombre = NombreGrupotextBox.Text;
             GrupoBLL.Guardar(grupo);
         }
         private void CargaEst(List<Estudiantes>lista)
@@ -46,7 +47,7 @@ namespace RegistroFluent_Api
             List<Estudiantes> estudiante = new List<Estudiantes>();
             foreach(Estudiantes estudiant in lista)
             {
-                estudiante.Add(EstudiantesBLL.Buscar(estudiant.IdEstudiante));
+                estudiante.Add(EstudiantesBLL.Buscar(estudiant.EstudianteId));
             }
             EstudiantedataGridView.DataSource = null;
             EstudiantedataGridView.DataSource = estudiante;
@@ -58,6 +59,8 @@ namespace RegistroFluent_Api
             grupo.Estudiante.Add(estudiante);
             EstudiantedataGridView.DataSource = null;
             EstudiantedataGridView.DataSource = grupo.Estudiante;
+            EstudiantescomboBox.Text = ""; 
+           
         }
 
         private void LlenarGruposEstudiantes(List<Estudiantes>lista)
@@ -65,7 +68,7 @@ namespace RegistroFluent_Api
             var estudiante = new List<Estudiantes>();
             foreach(Estudiantes estu in lista)
             {
-                estudiante.Add(EstudiantesBLL.Buscar(estu.IdEstudiante));
+                estudiante.Add(EstudiantesBLL.Buscar(estu.EstudianteId));
             }
             EstudiantedataGridView.DataSource = null;
             EstudiantedataGridView.DataSource = estudiante;
@@ -74,23 +77,7 @@ namespace RegistroFluent_Api
 
         private void Insertarbutton_Click(object sender, EventArgs e)
         {
-            /*
-            EstudiantesBLL.Guardar(new Estudiantes()
-            {
-                IdEstudiante=1,
-                EstudianteNombre="Edimar"
-            });
-            EstudiantesBLL.Guardar(new Estudiantes()
-            {
-                IdEstudiante = 1,
-                EstudianteNombre = "Jose"
-            });
-            EstudiantesBLL.Guardar(new Estudiantes()
-            {
-                IdEstudiante = 1,
-                EstudianteNombre = "Cara de c*lo"
-            });*/
-
+            
         }
 
         private void EstudiantedataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,6 +96,11 @@ namespace RegistroFluent_Api
         }
 
         private void Detalles_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NombreGrupotextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

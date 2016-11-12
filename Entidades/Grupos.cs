@@ -10,10 +10,11 @@ namespace Entidades
     public class Grupos
     {
         [Key]
-        public int IdGrupo { get; set; }
-        public string NombreGrupo { get; set; }
+        public int GrupoId { get; set; }
+        public string Nombre { get; set; }
 
-        public virtual List<Estudiantes> Estudiante { get; set; }
+        public virtual List<Estudiantes>  Estudiante { get; set; }
+        
         public Grupos()
         {
             this.Estudiante = new List<Estudiantes>();
@@ -21,8 +22,8 @@ namespace Entidades
         }
         public Grupos(int idgrupo, string nombregrupo)
         {
-            this.IdGrupo = idgrupo;
-            this.NombreGrupo = nombregrupo;
+            this.GrupoId = idgrupo;
+            this.Nombre = nombregrupo;
             this.Estudiante = new List<Estudiantes>();
 
                 

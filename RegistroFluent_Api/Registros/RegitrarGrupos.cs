@@ -19,15 +19,46 @@ namespace RegistroFluent_Api.Registros
         {
             InitializeComponent();
         }
+        
+        Grupos grupo = new Grupos();
+        Util u = new Util();
         public void LlenarClase(Grupos gr)
+
         {
-            //grupo.IdGrupo = Convert.ToInt32(IdtextBox.Text);
-            gr.NombreGrupo = NombreGrupotextBox.Text;
+            
+            gr.Nombre = NombreGrupotextBox.Text;
+        }
+
+        private void Pasar(Grupos gr)
+        {
+            var g = GrupoBLL.Buscar(u.StringToInt(IdtextBox.Text));
+            IdtextBox.Text = gr.GrupoId.ToString();
+            NombreGrupotextBox.Text = gr.Nombre;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = gr.Estudiante;
+        }
+        private void Llenar(Grupos grups)
+        {
+            var grup = GrupoBLL.Buscar(u.StringToInt(IdtextBox.Text));
+            IdtextBox.Text = grups.GrupoId.ToString();
+            NombreGrupotextBox.Text = grups.Nombre;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = grup.GrupoId;
+
         }
 
         private void RegitrarGrupos_Load(object sender, EventArgs e)
         {
+           
+            LlenandoCombo();
+        }
 
+        private void LlenandoCombo()
+        {
+            grupo = new Grupos();
+            EstudiantecomboBox.DataSource = EstudiantesBLL.GetLista();
+            EstudiantecomboBox.ValueMember = "EstudianteId";
+            EstudiantecomboBox.DisplayMember = "Nombres";
         }
 
         private void IdtextBox_TextChanged(object sender, EventArgs e)
@@ -46,12 +77,16 @@ namespace RegistroFluent_Api.Registros
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             VaciarTexbox();
+            
         }
 
         public void VaciarTexbox()
         {
             IdtextBox.Clear();
             NombreGrupotextBox.Clear();
+            
+
+
         }
 
         
@@ -108,8 +143,24 @@ namespace RegistroFluent_Api.Registros
 
         private void Buscarbutton_Click_1(object sender, EventArgs e)
         {
-            if (ValidarId("Ingresa el Id") && ValidarBuscar())
-                LlenarClase(GrupoBLL.Buscar(String(IdtextBox.Text)));
+            Llenar(GrupoBLL.Buscar(u.StringToInt(IdtextBox.Text)));
+        }
+
+        private void Agregarbutton_Click(object sender, EventArgs e)
+        {
+            grupo.Estudiante.Add(new Estudiantes((int)EstudiantecomboBox.SelectedValue, EstudiantecomboBox.Text));
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = grupo.Estudiante;
+            EstudiantecomboBox.Text = "";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void EstudiantecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

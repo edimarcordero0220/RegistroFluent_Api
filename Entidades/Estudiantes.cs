@@ -11,13 +11,13 @@ namespace Entidades
     public class Estudiantes
     {
         [Key]
-        public int IdEstudiante { get; set; }
-        public string EstudianteNombre { get; set; }
+        public int EstudianteId { get; set; }
+        public string Nombre { get; set; }
         public virtual ICollection<Grupos> Grupo { get; set; }
         public Estudiantes(int IdEstudiante, string EstudianteNombre)
        {
-            this.IdEstudiante = IdEstudiante;
-            this.EstudianteNombre = EstudianteNombre;
+            this.EstudianteId = IdEstudiante;
+            this.Nombre = EstudianteNombre;
             this.Grupo = new HashSet<Grupos>();
                 
         }

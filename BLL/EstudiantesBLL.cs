@@ -6,34 +6,39 @@ using System.Threading.Tasks;
 using Entidades;
 using DALL;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace BLL
 {
     public class EstudiantesBLL
     {
+
         Estudiantes estudiante = new Estudiantes();
 
         
 
         public static void Guardar(Estudiantes e)
         {
+           
             try
             {
-                RegistroFluentApiDb db = new RegistroFluentApiDb();
+                DetallesDb db = new DetallesDb();
                 {
                     db.Estudiante.Add(e);
                     db.SaveChanges();
                     db.Dispose();
+                  
                 }
             }catch(Exception ex)
             {
                 throw ex;
             }
+            
         }
         public static Estudiantes Buscar (int IdEstudiante)
         {
             Estudiantes estudiante = new Estudiantes();
-            using (RegistroFluentApiDb db = new RegistroFluentApiDb())
+            using (DetallesDb db = new DetallesDb())
             {
                 try
                 {
@@ -49,7 +54,7 @@ namespace BLL
         public static List<Estudiantes>GetLista()
         {
             List<Estudiantes> lista = new List<Estudiantes>();
-            using (RegistroFluentApiDb conexion = new RegistroFluentApiDb())
+            using (DetallesDb conexion = new DetallesDb())
             {
                 try
                 {
@@ -62,12 +67,23 @@ namespace BLL
             }
             return lista;
         }
+        /*public static List<Estudiantes> GetLista()
+        {
+            var lista = new List<Estudiantes>();
+            var db = new DetallesDb();
+            lista = db.Estudiante.ToList();
+            return lista;
+        }*/
         public static void Eliminar(int Id)
         {
-            var db = new RegistroFluentApiDb();
+            var db = new DetallesDb();
             Estudiantes e = db.Estudiante.Find(Id);
             db.Estudiante.Remove(e);
             db.SaveChanges();
         }
+
+       
+
     }
 }
+
